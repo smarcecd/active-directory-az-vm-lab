@@ -107,10 +107,10 @@ Open **Group Policy Management** from the **Tools** menu.
 ## ✅ Result
 
 You now have:
-•	A fully deployed **Azure VM**
-•	A functioning **Active Directory domain**
-•	Organizational Units, users, and groups
-•	Security policies enforced through Group Policy
+- A fully deployed **Azure VM**
+- A functioning **Active Directory domain**
+- Organizational Units, users, and groups
+- Security policies enforced through Group Policy
 
 This lab demonstrates core identity, security, and infrastructure skills used in real enterprise environments.
 
