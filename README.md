@@ -102,3 +102,15 @@ Open **Group Policy Management** from the **Tools** menu.
 | Computer Config → Windows Settings → Security → Local Policies → Security Options |	Interactive logon: Machine inactivity limit	| 900 seconds |
 | Computer Config → Administrative Templates → System → Removable Storage Access |	All removable storage classes: Deny all access	| Enabled |
 
+--
+
+## ✅ Result
+
+You now have:
+•	A fully deployed **Azure VM**
+•	A functioning **Active Directory domain**
+•	Organizational Units, users, and groups
+•	Security policies enforced through Group Policy
+
+This lab demonstrates core identity, security, and infrastructure skills used in real enterprise environments.
+
