@@ -169,7 +169,7 @@ On the Group Policy Management, we will be able to see the GPO but the grained c
    -	Check the GPO settings on a HTML file
      
 ```powershell
-Get-GPOReport -Name "IT Security Policy" -ReportType Html -Path "C:\userlab1\GPO.html"
+Get-GPOReport -Name "IT Security Policy" -ReportType Html -Path "C:\Users\userlab1\GPO.html"
 ```
     	
 -	List all users assigned to the IT Organizational Unit.
