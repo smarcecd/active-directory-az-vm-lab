@@ -115,7 +115,9 @@ Add-ADGroupMember -Identity "Finance_Users" -Members "bob.patel"
 Add-ADGroupMember -Identity "HR_Users"      -Members "carol.jones"
 Add-ADGroupMember -Identity "Sales_Users"   -Members "david.smith"
 ```
+
 ---
+
 
 ## 🛠️ Step 5 Configure Group Policy (PowerShell Version)
 
@@ -159,6 +161,27 @@ New-GPLink -Name "IT Security Policy" -Target "OU=IT,DC=lab,DC=local"
   -Key "HKLM\Software\Policies\Microsoft\Windows\RemovableStorageDevices" `
   -ValueName "Deny_All" -Type DWord -Value 1
     ```
+
+## ⚠️ How to check if the Group Policy works??
+
+On the Group Policy Management, we will be able to see the GPO but the grained configuration you can check it by:
+
+   -	Check the GPO settings on a HTML file
+     ```powershell
+Get-GPOReport -Name "IT Security Policy" -ReportType Html -Path "C:\userlab1\GPO.html"
+      ```
+    	
+-	Check which user is assigned to the OU IT
+  ```powershell
+Get-ADUser -SearchBase "OU=IT,DC=lab,DC=local" -Filter *
+  ```
+-	Try to change the password for short and weak one
+  ```powershell
+net user alice.chen pass1 /domain
+```
+
+---
+
 
 ## 🛠️ Step 6 Common Help Desk Tasks in AD (PowerShell)
 
