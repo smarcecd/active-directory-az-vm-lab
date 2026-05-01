@@ -167,9 +167,10 @@ New-GPLink -Name "IT Security Policy" -Target "OU=IT,DC=lab,DC=local"
 On the Group Policy Management, we will be able to see the GPO but the grained configuration you can check it by:
 
    -	Check the GPO settings on a HTML file
-     ```powershell
+     
+```powershell
 Get-GPOReport -Name "IT Security Policy" -ReportType Html -Path "C:\userlab1\GPO.html"
-      ```
+```
     	
 -	Check which user is assigned to the OU IT
   ```powershell
