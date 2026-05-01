@@ -45,7 +45,7 @@ It also includes creating Organizational Units, users, groups, and applying Grou
 5. Click "Next"  until you get to **Server Roles**
 6. Select **Active Directory Domain Services**.
 7. Add required features
-8. Click "Next"  until you get → Install.
+8. Click "Next"  until you get **Install**.
 9. Wait until the installation finish. Do not restart yet.
 
 ### Install Group Policy Management Console
