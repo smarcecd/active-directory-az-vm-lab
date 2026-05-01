@@ -34,6 +34,13 @@ After connecting via RDP, open **PowerShell as Administrator** and run:
 ```powershell
 Install-WindowsFeature -Name AD-Domain-Services -IncludeManagementTools
 ```
+
+### Install Group Policy Management Console
+
+Open PowerShell and run:
+```powershell
+Install-WindowsFeature -Name GPMC
+```
 ---
 
 ## 🛠️ Step 3 — Promote the Server to a Domain Controller
