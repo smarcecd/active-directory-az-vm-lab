@@ -216,6 +216,7 @@ Get-ADUser -Filter {LastLogonDate -lt $cutoff -and Enabled -eq $true} -Propertie
 Get-ADPrincipalGroupMembership -Identity "alice.chen" | Select-Object Name
 ```
 
+---
 
 ## 🧹 Delete the Resource Group
 
