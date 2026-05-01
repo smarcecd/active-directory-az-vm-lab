@@ -50,7 +50,10 @@ Open PowerShell and run:
 ```powershell
 Install-WindowsFeature -Name GPMC
 
-Step 3 — Promote the Server to a Domain Controller
+---
+
+
+## 🛠️ Step 2 — Promote the Server to a Domain Controller
 
 Installing AD DS adds the role, but promotion creates the actual domain.
 1.	In Server Manager, click the yellow warning flag.
