@@ -11,13 +11,15 @@ It includes installation, domain creation, OU structure, users, groups, and comm
 2. Sign in at https://portal.azure.com.
 3. Search for **Virtual machines** → **Create**.
 4. Use the following configuration:
-
+   
 | Setting | Value |
 |--------|--------|
+| Resource Group > Create New | RG-AD-LAB |
+| Virtual machine name | VM-AD-DC01 |
 | Region | East US |
 | Image | Windows Server 2025 Datacenter — Gen2 |
-| Size | Standard_B2s (2 vCPU, 4GB RAM) |
-| Authentication | Password |
+| Size | Standard_DC1s_v2 - 1 vcpu, 4 GiB memory |
+| Authentication | Password (Assign your username and password|
 | Public inbound ports | Allow RDP (3389) |
 | OS Disk | Standard SSD |
 
