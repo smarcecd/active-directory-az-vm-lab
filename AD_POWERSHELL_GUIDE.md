@@ -240,6 +240,9 @@ Double‑check that you no longer need anything in this lab before proceeding.
 **Azure resources continue to generate charges as long as they exist.**
 Don’t forget to delete the lab resources when you're done to avoid unnecessary costs.
 
+[![Watch the video](https://github.com/user-attachments/assets/25308779-b23c-4a40-866d-9c0673898a18)](https://www.loom.com/share/478900c7bee1482a8fb44b6bde6a2c8c)
+
+
 - Open the Resource Groups blade
   
 In the left-hand menu, select Resource groups Or use the search bar and type Resource groups
