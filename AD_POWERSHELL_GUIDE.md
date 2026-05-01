@@ -140,8 +140,9 @@ Get-ADUser -Filter {LastLogonDate -lt $cutoff -and Enabled -eq $true} -Propertie
 Get-ADPrincipalGroupMembership -Identity "alice.chen" | Select-Object Name
 ```
 
-
-
+## ✅ Summary
+This guide provides a complete PowerShell-driven workflow for deploying and managing Active Directory in a lab environment.
+It demonstrates automation, identity management, and real-world admin tasks used in IT operations.
 
 
 
