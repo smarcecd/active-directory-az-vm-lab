@@ -9,7 +9,7 @@ It includes installation, domain creation, OU structure, users, groups, and comm
 
 Steps 1-4:
 
-[![Watch the video](<img width="550" height="310" alt="Screenshot 2026-05-01 190228" src="https://github.com/user-attachments/assets/c38909de-7590-4bbf-8b8b-b214b0cd409b" />)](https://www.loom.com/share/c8ef908949554578b51befd5bbb3942f)
+[![Watch the video](https://github.com/user-attachments/assets/c38909de-7590-4bbf-8b8b-b214b0cd409b)](https://www.loom.com/share/c8ef908949554578b51befd5bbb3942f)
 
 
 
