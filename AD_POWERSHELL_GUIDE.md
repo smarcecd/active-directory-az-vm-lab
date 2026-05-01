@@ -121,7 +121,7 @@ Add-ADGroupMember -Identity "Sales_Users"   -Members "david.smith"
 
 ## 🛠️ Step 5 Configure Group Policy (PowerShell Version)
 
-- Create the GPO and link it to the IT OU
+- Create the GPO
 ```powershell
 New-GPO -Name "IT Security Policy" -Comment "Security baseline for IT OU"
 ```
