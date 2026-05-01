@@ -5,9 +5,7 @@ It includes installation, domain creation, OU structure, users, groups, and comm
 
 ---
 
-## 🎬 Watch Me Build This Lab!
-
-Steps 1-4:
+## 🎬 Watch Me Doing Steps 1-4:
 
 [![Watch the video](https://github.com/user-attachments/assets/c38909de-7590-4bbf-8b8b-b214b0cd409b)](https://www.loom.com/share/c8ef908949554578b51befd5bbb3942f)
 
@@ -123,10 +121,16 @@ Add-ADGroupMember -Identity "HR_Users"      -Members "carol.jones"
 Add-ADGroupMember -Identity "Sales_Users"   -Members "david.smith"
 ```
 
+
 ---
 
 
 ## 🛠️ Step 5 Configure Group Policy (PowerShell Version)
+
+## 🎬 Watch Me Doing Steps 1-4:
+
+[![Watch the video](https://github.com/user-attachments/assets/df1c406c-5645-46b5-95ac-fc2bc4162deb)](https://www.loom.com/share/a30064d805fa46eab7a1152f2c750103)
+
 
 - Create the GPO
 ```powershell
