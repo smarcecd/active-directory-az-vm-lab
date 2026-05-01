@@ -94,9 +94,11 @@ Open **Group Policy Management** from the **Tools** menu.
 4.	Right click the GPO → **Edit**.
 5.	Apply the settings below.
 
-Policy Path	Setting	Value
-Computer Config → Windows Settings → Security → Account Policies → Password Policy	Minimum password length	12
-Computer Config → Windows Settings → Security → Account Policies → Password Policy	Password must meet complexity requirements	Enabled
-Computer Config → Windows Settings → Security → Local Policies → Security Options	Interactive logon: Machine inactivity limit	900 seconds
-Computer Config → Administrative Templates → System → Removable Storage Access	All removable storage classes: Deny all access	Enabled
+
+| Policy | Path |Setting	Value |
+|--------|--------|--------|
+| Computer Config → Windows Settings → Security → Account Policies → Password Policy |	Minimum password length	| 12|
+| Computer Config → Windows Settings → Security → Account Policies → Password Policy |	Password must meet complexity requirements |	Enabled |
+| Computer Config → Windows Settings → Security → Local Policies → Security Options |	Interactive logon: Machine inactivity limit	| 900 seconds |
+| Computer Config → Administrative Templates → System → Removable Storage Access |	All removable storage classes: Deny all access	| Enabled |
 
