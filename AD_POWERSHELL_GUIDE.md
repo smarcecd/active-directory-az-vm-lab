@@ -29,14 +29,16 @@ It includes installation, domain creation, OU structure, users, groups, and comm
 
 After connecting via RDP, open **PowerShell as Administrator** and run:
 
+```powershell
 Install-WindowsFeature -Name AD-Domain-Services -IncludeManagementTools
-
+```
 ---
 
 ## 🛠️ Step 3 — Promote the Server to a Domain Controller
 
 Use PowerShell to create the forest and domain:
 
+```powershell
 Import-Module ADDSDeployment
 
 Install-ADDSForest `
@@ -45,6 +47,7 @@ Install-ADDSForest `
   -InstallDns:$true `
   -SafeModeAdministratorPassword (ConvertTo-SecureString "YourDSRMPassword!" -AsPlainText -Force) `
   -Force:$true
+```
 
 The server will restart automatically after promotion.
 
@@ -54,25 +57,29 @@ The server will restart automatically after promotion.
 
 - Create Organizational Units
 
+```powershell
 New-ADOrganizationalUnit -Name "IT"        -Path "DC=lab,DC=local"
 New-ADOrganizationalUnit -Name "Finance"   -Path "DC=lab,DC=local"
 New-ADOrganizationalUnit -Name "HR"        -Path "DC=lab,DC=local"
 New-ADOrganizationalUnit -Name "Sales"     -Path "DC=lab,DC=local"
 New-ADOrganizationalUnit -Name "Computers" -Path "DC=lab,DC=local"
+```
 
 - Create Security Groups
 
+```powershell
 New-ADGroup -Name "IT_Admins"     -GroupScope Global -GroupCategory Security -Path "OU=IT,DC=lab,DC=local"
 New-ADGroup -Name "Finance_Users" -GroupScope Global -GroupCategory Security -Path "OU=Finance,DC=lab,DC=local"
 New-ADGroup -Name "HR_Users"      -GroupScope Global -GroupCategory Security -Path "OU=HR,DC=lab,DC=local"
 New-ADGroup -Name "Sales_Users"   -GroupScope Global -GroupCategory Security -Path "OU=Sales,DC=lab,DC=local"
+```
 
 
 - Create User Accounts
 
 Run this entire block together — not line by line.
-```powershell
 
+```powershell
 # Step 1 — define password
 $password = ConvertTo-SecureString "Welcome@2026!" -AsPlainText -Force
 
@@ -105,22 +112,33 @@ Add-ADGroupMember -Identity "Sales_Users"   -Members "david.smith"
 
 
 - Unlock a locked account
+
+```powershell
 Unlock-ADAccount -Identity "carol.jones"
+```
 
 - Disable an account (employee offboarding)
-# Disable an account
+
+```powershell
 Disable-ADAccount -Identity "david.smith"
+```
  
-# Find all currently disabled accounts
+- Find all currently disabled accounts
+```powershell
 Search-ADAccount -AccountDisabled | Select-Object Name, SamAccountName
+```
 
 - Audit and reporting
-# Find accounts that have not logged in for 90 days
+  - Find accounts that have not logged in for 90 days
+```powershell
 $cutoff = (Get-Date).AddDays(-90)
 Get-ADUser -Filter {LastLogonDate -lt $cutoff -and Enabled -eq $true} -Properties LastLogonDate | Select-Object Name, LastLogonDate
+```
  
-# Check group membership for a specific user
+ - Check group membership for a specific user
+   ```powershell
 Get-ADPrincipalGroupMembership -Identity "alice.chen" | Select-Object Name
+```
 
 
 
