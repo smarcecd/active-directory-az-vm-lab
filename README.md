@@ -40,17 +40,20 @@ It also includes creating Organizational Units, users, groups, and applying Grou
 ## 🛠️ Step 2 — Install Active Directory Domain Services
 1. RDP into the VM.
 2. Open **Server Manager**.
-3. Go to **Manage → Add Roles and Features**.
-4. Select **Active Directory Domain Services**.
-5. Add required features → Install.
-6. Do not restart yet.
+3. Go to **Manage**
+4. Click on **Add Roles and Features**.
+5. Click "Next"  until you get to **Server Roles**
+6. Select **Active Directory Domain Services**.
+7. Add required features
+8. Click "Next"  until you get → Install.
+9. Wait until the installation finish. Do not restart yet.
 
 ### Install Group Policy Management Console
 
 Open PowerShell and run:
-
+```powershell
 Install-WindowsFeature -Name GPMC
-
+```
 ---
 
 ## 🛠️ Step 3 — Promote the Server to a Domain Controller
