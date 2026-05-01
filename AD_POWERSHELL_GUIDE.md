@@ -9,7 +9,7 @@ It includes installation, domain creation, OU structure, users, groups, and comm
 
 Steps 1-4:
 
-[![Watch the video] (<img width="550" height="310" alt="Screenshot 2026-05-01 190228" src="https://github.com/user-attachments/assets/d2dbdaee-a63f-43fd-81a8-59685bec4fd9" />) (https://www.loom.com/share/c8ef908949554578b51befd5bbb3942f)
+[![Watch the video]((<img width="550" height="310" alt="Screenshot 2026-05-01 190228" src="https://github.com/user-attachments/assets/d2dbdaee-a63f-43fd-81a8-59685bec4fd9" />))(https://www.loom.com/share/c8ef908949554578b51befd5bbb3942f)
 
 
 ## 🚀 Step 1 — Create the Azure Virtual Machine
