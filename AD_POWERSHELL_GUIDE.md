@@ -136,9 +136,10 @@ Get-ADUser -Filter {LastLogonDate -lt $cutoff -and Enabled -eq $true} -Propertie
 ```
  
  - Check group membership for a specific user
-   ```powershell
+```powershell
 Get-ADPrincipalGroupMembership -Identity "alice.chen" | Select-Object Name
 ```
+
 
 
 
