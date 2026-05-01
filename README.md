@@ -24,10 +24,12 @@ It also includes creating Organizational Units, users, groups, and applying Grou
 
 | Setting | Value |
 |--------|--------|
+| Resource Group > Create New | RG-AD-LAB |
+| Virtual machine name | VM-AD-DC01 |
 | Region | East US |
 | Image | Windows Server 2025 Datacenter — Gen2 |
-| Size | Standard_B2s (2 vCPU, 4GB RAM) |
-| Authentication | Password |
+| Size | Standard_DC1s_v2 - 1 vcpu, 4 GiB memory |
+| Authentication | Password (Assign your username and password|
 | Public inbound ports | Allow RDP (3389) |
 | OS Disk | Standard SSD |
 
