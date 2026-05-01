@@ -1,12 +1,19 @@
 # active-directory-az-vm-lab
-A hands-on lab showcasing the deployment and configuration of Active Directory on a Windows Server hosted in Azure.
 
-Lab 1 — Deploy Active Directory on an Azure VM (Easy Version)
+# Active Directory Lab on Azure  
+Deploying AD DS on a Windows Server 2025 VM
 
-Prerequisites
-•	Basic understanding of Azure
-•	An Azure account
+## 📌 Overview
+This lab walks through deploying a Windows Server virtual machine in Microsoft Azure and configuring it as a Domain Controller using Active Directory Domain Services (AD DS).  
+It also includes creating Organizational Units, users, groups, and applying Group Policy settings.
 
+---
+
+## 🧰 Prerequisites
+- Basic understanding of Azure
+- An active Azure account (Free Tier works)
+
+---
 
 Step 1 — Create the Virtual Machine
 1.	Go to azure.microsoft.com/free and create a free account.
