@@ -37,7 +37,7 @@ Install-WindowsFeature -Name AD-Domain-Services -IncludeManagementTools
 
 ### Install Group Policy Management Console
 
-Open PowerShell and run:
+Run:
 ```powershell
 Install-WindowsFeature -Name GPMC
 ```
