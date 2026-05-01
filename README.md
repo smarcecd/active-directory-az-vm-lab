@@ -109,6 +109,32 @@ Open **Group Policy Management** from the **Tools** menu.
 
 --
 
+## 🧹 Delete the Resource Group
+
+Deleting a resource group is permanent.
+All resources inside — VMs, disks, NICs, NSGs, public IPs, etc. — will be removed.
+
+Double‑check that you no longer need anything in this lab before proceeding.
+
+💡 Cost Reminder:  
+**Azure resources continue to generate charges as long as they exist.**
+Don’t forget to delete the lab resources when you're done to avoid unnecessary costs.
+
+- Open the Resource Groups blade
+  
+In the left-hand menu, select Resource groups Or use the search bar and type Resource groups
+
+- Locate RG-AD-LAB
+  
+Scroll or search for RG-AD-LAB and Click the resource group name to open it
+
+- Click “Delete resource group”
+  
+At the top of the page, click Delete resource group. Azure will prompt you to confirm.
+Type RG-AD-LAB exactly as shown, Click Delete
+
+--
+
 ## ✅ Result
 
 You now have:
