@@ -84,10 +84,9 @@ It demonstrates the foundational skills required for roles in:
 
 - **README.md** — Main project summary  
 - **AD_POWERSHELL_GUIDE.md** — Full PowerShell automation guide  
-- **LEARNINGS.md** — What I learned from the lab  
-- **FUTURE_IMPROVEMENTS.md** — Planned enhancements  
-- **/docs** — Additional documentation  
-- **/screenshots** — Visual proof of configuration steps  
+- **LEARNINGS.md** — What I learned from the lab
+- **ARCHITECTURE_DIAGRAM.md** 
+ 
 
 ---
 
