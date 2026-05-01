@@ -62,7 +62,7 @@ Installing AD DS adds the role, but promotion creates the actual domain.
 1.	In **Server Manager**, click the yellow warning flag.
 2.	Select **Promote this server to a domain controller** .
 3.	Choose **Add a new forest**.
-4.	Set the **domain name** to: lab1.local.
+4.	Set the **domain name** to: lab.local.
 5.	Click **Next** and set a **DSRM password** (save it).
 6.	Accept the default DNS and NetBIOS settings.
 7.	Click **Install** — the server will restart automatically.
