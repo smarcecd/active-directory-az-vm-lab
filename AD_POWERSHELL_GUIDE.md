@@ -52,7 +52,7 @@ The server will restart automatically after promotion.
 
 ## 🛠️ Step 4 — Build the Organizational Structure
 
-Create Organizational Units
+- Create Organizational Units
 
 New-ADOrganizationalUnit -Name "IT"        -Path "DC=lab,DC=local"
 New-ADOrganizationalUnit -Name "Finance"   -Path "DC=lab,DC=local"
@@ -60,7 +60,7 @@ New-ADOrganizationalUnit -Name "HR"        -Path "DC=lab,DC=local"
 New-ADOrganizationalUnit -Name "Sales"     -Path "DC=lab,DC=local"
 New-ADOrganizationalUnit -Name "Computers" -Path "DC=lab,DC=local"
 
-Create Security Groups
+- Create Security Groups
 
 New-ADGroup -Name "IT_Admins"     -GroupScope Global -GroupCategory Security -Path "OU=IT,DC=lab,DC=local"
 New-ADGroup -Name "Finance_Users" -GroupScope Global -GroupCategory Security -Path "OU=Finance,DC=lab,DC=local"
@@ -68,9 +68,10 @@ New-ADGroup -Name "HR_Users"      -GroupScope Global -GroupCategory Security -Pa
 New-ADGroup -Name "Sales_Users"   -GroupScope Global -GroupCategory Security -Path "OU=Sales,DC=lab,DC=local"
 
 
-Create User Accounts
+- Create User Accounts
 
 Run this entire block together — not line by line.
+```powershell
 
 # Step 1 — define password
 $password = ConvertTo-SecureString "Welcome@2026!" -AsPlainText -Force
