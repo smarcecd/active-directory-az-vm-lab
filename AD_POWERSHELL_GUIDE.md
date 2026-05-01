@@ -117,7 +117,50 @@ Add-ADGroupMember -Identity "Sales_Users"   -Members "david.smith"
 ```
 ---
 
-## 🛠️ Step 5 Common Help Desk Tasks in AD (PowerShell)
+## 🛠️ Step 5 Configure Group Policy (PowerShell Version)
+
+- Create the GPO and link it to the IT OU
+```powershell
+New-GPO -Name "IT Security Policy" -Comment "Security baseline for IT OU"
+```
+- Link GPO to IT OU
+```powershell
+New-GPLink -Name "IT Security Policy" -Target "OU=IT,DC=lab,DC=local"
+```
+- Configure Password Policy Settings
+  These settings correspond to: Computer Config → Policies → Windows Settings → Security → Account Policies → Password Policy
+   - Minimum password length = 12
+  ```powershell
+  Set-GPRegistryValue -Name "IT Security Policy" `
+  -Key "HKLM\System\CurrentControlSet\Services\Netlogon\Parameters" `
+  -ValueName "MinimumPasswordLength" -Type DWord -Value 12
+  ```
+   - Password must meet complexity requirements = Enabled
+  ```powershell
+  Set-GPRegistryValue -Name "IT Security Policy" `
+  -Key "HKLM\System\CurrentControlSet\Services\Netlogon\Parameters" `
+  -ValueName "RequireStrongKey" -Type DWord -Value 1
+  ```
+
+- Configure Security Options
+  These settings correspond to: Computer Config → Policies → Windows Settings → Security Settings → Local Policies → Security Options
+
+   - Interactive logon: Machine inactivity limit = 900 seconds
+  ```powershell
+  Set-GPRegistryValue -Name "IT Security Policy" `
+  -Key "HKLM\Software\Microsoft\Windows\CurrentVersion\Policies\System" `
+  -ValueName "InactivityTimeoutSecs" -Type DWord -Value 900
+  ```
+
+- Block All Removable Storage
+  These settings correspond to: Computer Config → Policies → Administrative Templates → System → Removable Storage Access
+   ```powershell
+  Set-GPRegistryValue -Name "IT Security Policy" `
+  -Key "HKLM\Software\Policies\Microsoft\Windows\RemovableStorageDevices" `
+  -ValueName "Deny_All" -Type DWord -Value 1
+    ```
+
+## 🛠️ Step 6 Common Help Desk Tasks in AD (PowerShell)
 
 
 - Unlock a locked account
