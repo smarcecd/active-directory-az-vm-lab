@@ -98,7 +98,7 @@ Add-ADGroupMember -Identity "IT_Admins"     -Members "alice.chen"
 Add-ADGroupMember -Identity "Finance_Users" -Members "bob.patel"
 Add-ADGroupMember -Identity "HR_Users"      -Members "carol.jones"
 Add-ADGroupMember -Identity "Sales_Users"   -Members "david.smith"
-
+```
 ---
 
 ## 🛠️ Step 5 Common Help Desk Tasks in AD (PowerShell)
