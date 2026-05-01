@@ -15,39 +15,40 @@ It also includes creating Organizational Units, users, groups, and applying Grou
 
 ---
 
-Step 1 — Create the Virtual Machine
-1.	Go to azure.microsoft.com/free and create a free account.
-2.	Sign in at portal.azure.com.
-3.	Search for Virtual machines → click Create.
-4.	Enter the VM settings using the table below.
-5.	Click Review + Create, then Create.
+---
 
-VM Settings
-Setting	Value
-Region	East US
-Image	Windows Server 2025 Datacenter — Gen2
-Size	Standard_B2s (2 vCPU, 4GB RAM)
-Authentication	Password
-Public inbound ports	Allow RDP (3389)
-OS disk	Standard SSD
+## 🚀 Step 1 — Create the Azure Virtual Machine
+1. Go to https://azure.microsoft.com/free and create an account.
+2. Sign in at https://portal.azure.com.
+3. Search for **Virtual machines** → **Create**.
+4. Use the following configuration:
 
+| Setting | Value |
+|--------|--------|
+| Region | East US |
+| Image | Windows Server 2025 Datacenter — Gen2 |
+| Size | Standard_B2s (2 vCPU, 4GB RAM) |
+| Authentication | Password |
+| Public inbound ports | Allow RDP (3389) |
+| OS Disk | Standard SSD |
 
-Step 2 — Install Active Directory Domain Services (AD DS)
+5. Click **Review + Create**, then **Create**.
 
-1.	RDP into your new Windows Server VM.
-2.	Server Manager opens automatically.
-3.	Click Manage → Add Roles and Features.
-4.	Click Next until you reach Server Roles.
-5.	Check Active Directory Domain Services.
-6.	When prompted, click Add Features.
-7.	Click Next through the rest and then Install.
-8.	Wait 2–3 minutes, then click Close (do NOT restart yet).
+---
 
--	Install Group Policy Management Console (GPMC)
+## 🛠️ Step 2 — Install Active Directory Domain Services
+1. RDP into the VM.
+2. Open **Server Manager**.
+3. Go to **Manage → Add Roles and Features**.
+4. Select **Active Directory Domain Services**.
+5. Add required features → Install.
+6. Do not restart yet.
+
+### Install Group Policy Management Console
 Open PowerShell and run:
-Install-WindowsFeature -Name GPMC
-Close and reopen Server Manager.
 
+```powershell
+Install-WindowsFeature -Name GPMC
 
 Step 3 — Promote the Server to a Domain Controller
 
