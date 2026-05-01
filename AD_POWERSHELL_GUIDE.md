@@ -5,20 +5,23 @@ It includes installation, domain creation, OU structure, users, groups, and comm
 
 ---
 
-## 🚀 Step 1 — Create the Azure VM (Free Tier)
+## 🚀 Step 1 — Create the Azure Virtual Machine
 
-Using Azure allows you to run the lab without local hardware. The VM runs in Microsoft’s datacenter and is accessible via RDP.
+1. Go to https://azure.microsoft.com/free and create an account.
+2. Sign in at https://portal.azure.com.
+3. Search for **Virtual machines** → **Create**.
+4. Use the following configuration:
 
-### VM Configuration
+| Setting | Value |
+|--------|--------|
+| Region | East US |
+| Image | Windows Server 2025 Datacenter — Gen2 |
+| Size | Standard_B2s (2 vCPU, 4GB RAM) |
+| Authentication | Password |
+| Public inbound ports | Allow RDP (3389) |
+| OS Disk | Standard SSD |
 
-| Setting | Value | Why |
-|--------|--------|------|
-| **Region** | East US | Cheapest region, most VM sizes available |
-| **Image** | Windows Server 2025 Datacenter — Gen2 | Latest OS, includes 180‑day evaluation |
-| **Size** | Standard_B2s | Smallest size that runs AD smoothly |
-| **Authentication** | Password | Needed for RDP access |
-| **Public inbound ports** | Allow RDP (3389) | Required to connect |
-| **OS disk** | Standard SSD | Good performance, free tier eligible |
+5. Click **Review + Create**, then **Create**.
 
 ---
 
@@ -27,3 +30,101 @@ Using Azure allows you to run the lab without local hardware. The VM runs in Mic
 After connecting via RDP, open **PowerShell as Administrator** and run:
 
 Install-WindowsFeature -Name AD-Domain-Services -IncludeManagementTools
+
+---
+
+## 🛠️ Step 3 — Promote the Server to a Domain Controller
+
+Use PowerShell to create the forest and domain:
+
+Import-Module ADDSDeployment
+
+Install-ADDSForest `
+  -DomainName "lab.local" `
+  -DomainNetBiosName "LAB" `
+  -InstallDns:$true `
+  -SafeModeAdministratorPassword (ConvertTo-SecureString "YourDSRMPassword!" -AsPlainText -Force) `
+  -Force:$true
+
+The server will restart automatically after promotion.
+
+---
+
+## 🛠️ Step 4 — Build the Organizational Structure
+
+Create Organizational Units
+
+New-ADOrganizationalUnit -Name "IT"        -Path "DC=lab,DC=local"
+New-ADOrganizationalUnit -Name "Finance"   -Path "DC=lab,DC=local"
+New-ADOrganizationalUnit -Name "HR"        -Path "DC=lab,DC=local"
+New-ADOrganizationalUnit -Name "Sales"     -Path "DC=lab,DC=local"
+New-ADOrganizationalUnit -Name "Computers" -Path "DC=lab,DC=local"
+
+Create Security Groups
+
+New-ADGroup -Name "IT_Admins"     -GroupScope Global -GroupCategory Security -Path "OU=IT,DC=lab,DC=local"
+New-ADGroup -Name "Finance_Users" -GroupScope Global -GroupCategory Security -Path "OU=Finance,DC=lab,DC=local"
+New-ADGroup -Name "HR_Users"      -GroupScope Global -GroupCategory Security -Path "OU=HR,DC=lab,DC=local"
+New-ADGroup -Name "Sales_Users"   -GroupScope Global -GroupCategory Security -Path "OU=Sales,DC=lab,DC=local"
+
+
+Create User Accounts
+
+Run this entire block together — not line by line.
+
+# Step 1 — define password
+$password = ConvertTo-SecureString "Welcome@2026!" -AsPlainText -Force
+
+# Step 2 — create users
+New-ADUser -Name "alice.chen" -GivenName "Alice" -Surname "Chen" `
+  -SamAccountName "alice.chen" -UserPrincipalName "alice.chen@lab.local" `
+  -Path "OU=IT,DC=lab,DC=local" -AccountPassword $password -Enabled $true
+
+New-ADUser -Name "bob.patel" -GivenName "Bob" -Surname "Patel" `
+  -SamAccountName "bob.patel" -UserPrincipalName "bob.patel@lab.local" `
+  -Path "OU=Finance,DC=lab,DC=local" -AccountPassword $password -Enabled $true
+
+New-ADUser -Name "carol.jones" -GivenName "Carol" -Surname "Jones" `
+  -SamAccountName "carol.jones" -UserPrincipalName "carol.jones@lab.local" `
+  -Path "OU=HR,DC=lab,DC=local" -AccountPassword $password -Enabled $true
+
+New-ADUser -Name "david.smith" -GivenName "David" -Surname "Smith" `
+  -SamAccountName "david.smith" -UserPrincipalName "david.smith@lab.local" `
+  -Path "OU=Sales,DC=lab,DC=local" -AccountPassword $password -Enabled $true
+
+# Step 3 — add users to groups
+Add-ADGroupMember -Identity "IT_Admins"     -Members "alice.chen"
+Add-ADGroupMember -Identity "Finance_Users" -Members "bob.patel"
+Add-ADGroupMember -Identity "HR_Users"      -Members "carol.jones"
+Add-ADGroupMember -Identity "Sales_Users"   -Members "david.smith"
+
+---
+
+## 🛠️ Step 5 Common Help Desk Tasks in AD (PowerShell)
+
+
+- Unlock a locked account
+Unlock-ADAccount -Identity "carol.jones"
+
+- Disable an account (employee offboarding)
+# Disable an account
+Disable-ADAccount -Identity "david.smith"
+ 
+# Find all currently disabled accounts
+Search-ADAccount -AccountDisabled | Select-Object Name, SamAccountName
+
+- Audit and reporting
+# Find accounts that have not logged in for 90 days
+$cutoff = (Get-Date).AddDays(-90)
+Get-ADUser -Filter {LastLogonDate -lt $cutoff -and Enabled -eq $true} -Properties LastLogonDate | Select-Object Name, LastLogonDate
+ 
+# Check group membership for a specific user
+Get-ADPrincipalGroupMembership -Identity "alice.chen" | Select-Object Name
+
+
+
+
+
+
+
+
