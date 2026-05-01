@@ -74,7 +74,7 @@ Installing AD DS adds the role, but promotion creates the actual domain.
 Open **Active Directory Users and Computers (ADUC)** from **Tools** in Server Manager.
 
 ## Create Organizational Units (OUs)
-Right click **lab1.local**
+Right click **lab.local**
 Select → **New → Organizational Unit**. 
 Create OUs for each department and one for Computers.
 
