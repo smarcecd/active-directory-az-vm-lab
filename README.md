@@ -13,7 +13,6 @@ It also includes creating Organizational Units, users, groups, and applying Grou
 - Basic understanding of Azure
 - An active Azure account (Free Tier works)
 
----
 
 ---
 
@@ -45,52 +44,55 @@ It also includes creating Organizational Units, users, groups, and applying Grou
 6. Do not restart yet.
 
 ### Install Group Policy Management Console
+
 Open PowerShell and run:
 
-```powershell
 Install-WindowsFeature -Name GPMC
 
 ---
 
-
-## 🛠️ Step 2 — Promote the Server to a Domain Controller
+## 🛠️ Step 3 — Promote the Server to a Domain Controller
 
 Installing AD DS adds the role, but promotion creates the actual domain.
-1.	In Server Manager, click the yellow warning flag.
-2.	Select Promote this server to a domain controller.
-3.	Choose Add a new forest.
-4.	Set the domain name to: lab.local.
-5.	Click Next and set a DSRM password (save it).
+1.	In **Server Manager**, click the yellow warning flag.
+2.	Select **Promote this server to a domain controller** .
+3.	Choose **Add a new forest**.
+4.	Set the **domain name** to: lab1.local.
+5.	Click **Next** and set a **DSRM password** (save it).
 6.	Accept the default DNS and NetBIOS settings.
-7.	Click Install — the server will restart automatically.
+7.	Click **Install** — the server will restart automatically.
 
+---
 
-Step 4 — Build the Organizational Structure
+## 🛠️ Step 4 — Build the Organizational Structure
 
-Open Active Directory Users and Computers (ADUC) from Tools in Server Manager.
-Create Organizational Units (OUs)
-Right click lab.local → New → Organizational Unit. Create OUs for each department and one for Computers.
+Open **Active Directory Users and Computers (ADUC)** from **Tools** in Server Manager.
 
--	Create Security Groups
-Right click an OU → New → Group. Set:
-•	Group scope: Global
-•	Group type: Security
+## Create Organizational Units (OUs)
+Right click **lab1.local**
+Select → **New → Organizational Unit**. 
+Create OUs for each department and one for Computers.
 
--	Create User Accounts
-Use a consistent naming format, such as: firstname.lastname
+## Create Security Groups
+Right click an OU 
+Select **New → Group**. 
+Set:
+•	**Group scope**: Global
+•	**Group type**: Security
 
+## Create User Accounts
+Use a consistent naming format, such as: **firstname.lastname**
 
-Step 5 — Configure Group Policy
+---
 
-Group Policy lets you apply settings to all users and computers automatically.
-Open Group Policy Management from the Tools menu.
-1.	Expand Forest: lab.local → Domains → lab.local.
-2.	Right click the IT OU → Create a GPO in this domain and link it here.
-3.	Name it: IT Security Policy.
-4.	Right click the GPO → Edit.
+## 🛠️ Step 5 — Configure Group Policy
+
+Open **Group Policy Management** from the **Tools** menu.
+1.	Expand **Forest: lab.local** → Domains → lab.local.
+2.	Right click the **IT OU → Create a GPO in this domain and link it here**.
+3.	Name it: **IT Security Policy**.
+4.	Right click the GPO → **Edit**.
 5.	Apply the settings below.
-
--	Group Policy Settings
 
 Policy Path	Setting	Value
 Computer Config → Windows Settings → Security → Account Policies → Password Policy	Minimum password length	12
