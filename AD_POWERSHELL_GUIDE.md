@@ -127,7 +127,7 @@ Add-ADGroupMember -Identity "Sales_Users"   -Members "david.smith"
 
 ## 🛠️ Step 5 Configure Group Policy (PowerShell Version)
 
-## 🎬 Watch Me Doing Steps 1-4:
+## 🎬 Watch Me Doing Step 5
 
 [![Watch the video](https://github.com/user-attachments/assets/df1c406c-5645-46b5-95ac-fc2bc4162deb)](https://www.loom.com/share/a30064d805fa46eab7a1152f2c750103)
 
