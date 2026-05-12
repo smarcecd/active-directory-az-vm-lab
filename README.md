@@ -14,6 +14,12 @@ It also includes creating Organizational Units, users, groups, and applying Grou
 - An active Azure account (Free Tier works)
 
 
+--- 
+
+## Watch me doing the lab!
+
+[![Watch the video](https://github.com/user-attachments/assets/c38909de-7590-4bbf-8b8b-b214b0cd409b)](https://www.loom.com/share/a0967c6fa3114706adca1df9b1684465)
+
 ---
 
 ## 🚀 Step 1 — Create the Azure Virtual Machine
