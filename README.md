@@ -1,4 +1,3 @@
-# active-directory-az-vm-lab
 
 # Active Directory Lab on Azure  
 Deploying AD DS on a Windows Server 2025 VM
